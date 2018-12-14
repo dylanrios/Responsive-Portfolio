@@ -290,6 +290,7 @@ input[type=submit] {
 
   #logo {
     width: 640px;
+    margin-left: 0px;
   }
   nav {
     margin: auto;
