@@ -4,8 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <title>About | Dylan Rios</title>
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
 </head>
 
 <body>
@@ -13,17 +21,17 @@
   <header id="masthead">
     <div class="container">
       <a href="index.html" id="logo">Dylan Rios</a>
-      <nav>
-        <a href="index.html">About</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html">Contact</a>
+      <nav id="nav1">
+        <a href="#aboutMe">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contactMe">Contact</a>
       </nav>
     </div>
   </header>
 
-
+<!-- About Me  -->
   <div id="main-container" class="container">
-    <section class="main-section">
+    <section class="main-section scrollspy" id="aboutMe">
 
       
       <h1>About Me</h1>
@@ -40,13 +48,123 @@
 
     </section>
 
+  
+<!-- Portfolio  -->
+  
+    <section class="main-section scrollspy" id="portfolio">
+      <h1>Portfolio</h1>
+    <div class='row'>
+      <div class="work col s4">
+        
+
+        <a href="https://dylanrios.github.io/Psychic-Game/"><img src="assets/images/psychic.png" alt="Psychic Game"></a>
+      </div>
+
+      <div class="work col s4">
+        
+
+        <a href="https://dylanrios.github.io/unit-4-game/"><img src="assets/images/crystals.png" alt="Crystal Collector"></a>
+      </div>
+      <div class="work col s4">
+        
+
+        <a href="https://dylanrios.github.io/TriviaGame-/"><img src="assets/images/gettoknowme.png" alt="Trivia Game"></a>
+      </div>
+      <div class="work col s4">
+        
+
+        <a href="https://dylanrios.github.io/Giphy_Api/"><img src="assets/images/giphy.png" alt="Giphy API"></a>
+      </div>
+      <div class="work col s4">
+        
+
+        <a href='https://dylanrios.github.io/project-number-1/'><img src="assets/images/lunch.png" alt="Train Schedule"></a>
+      </div>
+    </div>
+
+    </section>
+
+  
+
+  <!-- Contact Form -->
+  
+    <section class="main-section scrollspy" id="contactMe">
+      <h1>Contact</h1>
+
+      <form id="contact-form">
+        <ul>
+          <li>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="John Smith" required="required">
+          </li>
+          <li>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com" required="required">
+          </li>
+          <li>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required="required"></textarea>
+          </li>
+        </ul>
+        <input type="submit" id='submit'>
+      </form>
+
+    </section>
+
   </div>
+
 
   <footer>
     <div class="container">
       Copyright &copy; 
     </div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
+
+<script>
+$(document).ready(function(){
+    $('.scrollspy').scrollSpy();
+  });
+
+  var config = {
+    apiKey: "AIzaSyBhKuWQhX5urRhtpU5bbufad8LzPYaBY1o",
+    authDomain: "portfolio-d823e.firebaseapp.com",
+    databaseURL: "https://portfolio-d823e.firebaseio.com",
+    projectId: "portfolio-d823e",
+    storageBucket: "portfolio-d823e.appspot.com",
+    messagingSenderId: "517236217177"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+  
+  
+
+  $('#submit').on('click', function() {
+    event.preventDefault();
+    var input1 = $('#name').val().trim();
+    var input2 = $('#email').val().trim();
+    var input3 = $('#message').val().trim();
+
+    var name = '';
+    var email = '';
+    var message = '';
+
+    database.ref().push({
+        name: input1,
+        email: input2,
+        message: input3
+
+    });
+
+    $('#name').val('');
+    $('#email').val('');
+    $('#message').val('');
+
+  });
+        
+</script>
 
 </html>
