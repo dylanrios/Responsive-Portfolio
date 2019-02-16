@@ -152,6 +152,21 @@ h3, h2 {
 
 /* portfolio page */
 
+/* #resumeImage {
+  width: 80%;
+  align-self: center;
+} */
+
+#resumeContainer {
+  height: 100%;
+}
+#resumepdf {
+  width: 100%;
+  height: 1150px;
+  
+}
+
+
 .work {
   position: relative;
   float: left;
@@ -164,6 +179,7 @@ h3, h2 {
 /* .work:nth-child(even) {
   margin-right: 40px;
 } */
+
 
 .work img {
   width: 100%;
@@ -236,8 +252,8 @@ input[type=submit] {
 
 @media screen and (max-width: 980px) {
   body {
-    width: 70%;
-    height: 60%;
+    width: 100%;
+    height: auto;
     
 
   }
@@ -254,8 +270,15 @@ input[type=submit] {
   
 
   #main-container {
-    margin-left: 45px;
-    height: 500px;
+    margin-bottom: 20px;
+    height: auto;
+    width: 100%;
+  }
+
+  .main-section {
+    margin: 10px 0px;
+    height: auto;
+    width: 1
   }
 
   #logo {
@@ -269,11 +292,16 @@ input[type=submit] {
 
 @media screen and (max-width: 768px) {
   #main-container {
-    margin-left: 20px;
-    width: 728px;
-    margin-right: 20px;
+    margin: auto;
+    width: 80%;
+   
 
   }
+
+  /* .main-section {
+    margin: auto;
+    width: 80%;
+  } */
 
 
 #logo {
@@ -295,7 +323,10 @@ input[type=submit] {
 @media screen and (max-width: 640px) {
   header {
     position: static;
-    width: 640px;
+    height: 24%;
+    background-color: white;
+    
+    
 
   }
 
@@ -313,14 +344,29 @@ input[type=submit] {
   nav {
     margin: auto;
     margin-right: 27%;
+    
 
   }
   #main-container {
     
-    width: 600px;
+    width: 640px;
+    margin: auto;
+
     
 
   }
+
+  #aboutMe {
+    margin-top: 25px;
+  }
+
+  .main-section {
+    width: 500px;
+    margin: 20px 10%;
+    
+
+  }
+
   footer {
     width: 640px;
   }
