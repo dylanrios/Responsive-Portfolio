@@ -344,6 +344,7 @@ input[type=submit] {
   nav {
     margin: auto;
     /* margin-right: 27%; */
+    height: auto;
     
 
   }
